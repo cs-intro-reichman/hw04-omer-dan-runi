@@ -22,7 +22,7 @@ public class ArrayOps {
             flag = false;
         }
         // Write your code here:
-        return -1;
+        return 0;
     }
 
     public static int secondMaxValue(int [] array) {

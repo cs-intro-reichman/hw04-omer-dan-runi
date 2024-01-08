@@ -39,7 +39,7 @@ public class StringOps {
                 case 'u': capsVow = capsVow + "U"; break;
                 // H is not a vowl!!!!
                 case 'h': capsVow = capsVow + "H"; break;
-                
+
                 default: capsVow = capsVow + string.charAt(i);
             }
         }
@@ -50,34 +50,60 @@ public class StringOps {
     public static String camelCase (String string) {
         // Write your code here:
         String camString = "";
-        boolean newWord = true;
+        boolean newWord = false;
+        boolean firstWord = true;
         int charInt;
-        char charBack;
+        char currentChar;
 
         for (int i = 0; i < string.length(); i++)
         {
+            charInt = (int) string.charAt(i);
+
             if (string.charAt(i) != ' ')
             {
-
-                charInt = (int) string.charAt(0);
-
-                // Checking if the letter is Caps
-                if (charInt < 90 && charInt > 65)
+                if (firstWord)
                 {
-                    // Diff in the ASCII table between lower and upper
-                    charInt -= 32;
-                }
-                // Caps on new word
-                if (newWord)
-                {
-                    charInt += 32;
-                    newWord = false;
-                }
+                    if (charInt < 90 && charInt > 65)
+                    {
+                        charInt += 32;
+                    }
+                    currentChar = (char) charInt;
 
-                charBack = (char) charInt;
-                camString = camString + charBack;
+                    camString = camString + currentChar;
+
+                    if ((i < string.length() + 1) && (string.charAt(i + 1) == ' '))
+                    {
+                        firstWord = false;
+                    }
+                }
+                else
+                {
+                    // Checking if the letter is Caps
+                    if (charInt < 90 && charInt > 65)
+                    {
+                        // Diff in the ASCII table between lower and upper
+                        charInt += 32;
+
+                        // Caps on new word
+                        if (newWord)
+                        {
+                            newWord = false;
+                        }
+                    }
+                    else
+                    {
+                        if (newWord)
+                        {
+                            charInt -= 32;
+                            newWord = false;
+                        }
+                    }
+                    
+                    currentChar = (char) charInt;
+                    camString = camString + currentChar;
+                }
             }
-            else
+            else if (!firstWord)
             {
                 newWord = true;
             }
