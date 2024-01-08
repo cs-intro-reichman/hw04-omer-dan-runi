@@ -28,19 +28,29 @@ public class StringOps {
     public static String capVowelsLowRest (String string) {
         // Write your code here:
         String capsVow = "";
+        int charInt;
+        char currentChar;
         for (int i = 0; i < string.length(); i++)
         {
-            switch (string.charAt(i))
+            charInt = (int) string.charAt(i);
+
+            // Checking if the letter is Caps
+            if (charInt < 90 && charInt > 65)
+            {
+                // Diff in the ASCII table between lower and upper
+                charInt += 32;
+            }
+            currentChar = (char) charInt;
+
+            switch (currentChar)
             {
                 case 'a': capsVow = capsVow + "A"; break;
                 case 'e': capsVow = capsVow + "E"; break;
                 case 'i': capsVow = capsVow + "I"; break;
                 case 'o': capsVow = capsVow + "O"; break;
                 case 'u': capsVow = capsVow + "U"; break;
-                // H is not a vowl!!!!
-                case 'h': capsVow = capsVow + "H"; break;
 
-                default: capsVow = capsVow + string.charAt(i);
+                default: capsVow = capsVow + currentChar;
             }
         }
 
@@ -81,13 +91,15 @@ public class StringOps {
                     // Checking if the letter is Caps
                     if (charInt < 90 && charInt > 65)
                     {
-                        // Diff in the ASCII table between lower and upper
-                        charInt += 32;
-
                         // Caps on new word
                         if (newWord)
                         {
                             newWord = false;
+                        }
+                        else
+                        {
+                            // Diff in the ASCII table between lower and upper
+                            charInt += 32;
                         }
                     }
                     else
