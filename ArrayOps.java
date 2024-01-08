@@ -19,9 +19,10 @@ public class ArrayOps {
             {
                 return i;
             }
+            flag = false;
         }
         // Write your code here:
-        return 1;
+        return -1;
     }
 
     public static int secondMaxValue(int [] array) {
@@ -61,7 +62,7 @@ public class ArrayOps {
         {
             for (int j = 0; j < array2.length; j++)
             {
-                if (array2[j] == array1[i])
+                if (array1[i] == array2[j])
                 {
                     flag = true;
                 }
@@ -77,7 +78,7 @@ public class ArrayOps {
         {
             for (int i = 0; i < array1.length; i++)
             {
-                if (array2[i] == array1[j])
+                if (array1[i] == array2[j])
                 {
                     flag = true;
                 }
@@ -101,17 +102,18 @@ public class ArrayOps {
             // if there is an increase
             if (array[i] > array[i+1])
             {
-                decreasing = false;
+                increasing = false;
             }
 
             // if there is a decrease
-            if (array[i] > array[i+1])
+            if (array[i] < array[i+1])
             {
-                increasing = false;
+                decreasing = false;
             }
         }
 
-        return (increasing || decreasing);
+        boolean res = (increasing || decreasing);
+        return res;
     }
 
 }

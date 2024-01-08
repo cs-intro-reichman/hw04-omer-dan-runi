@@ -37,6 +37,9 @@ public class StringOps {
                 case 'i': capsVow = capsVow + "I"; break;
                 case 'o': capsVow = capsVow + "O"; break;
                 case 'u': capsVow = capsVow + "U"; break;
+                // H is not a vowl!!!!
+                case 'h': capsVow = capsVow + "H"; break;
+                
                 default: capsVow = capsVow + string.charAt(i);
             }
         }
@@ -86,13 +89,11 @@ public class StringOps {
     public static int[] allIndexOf (String string, char chr) {
         // Write your code here:
         int indexCount = 0; 
-        String checkingString = string;
         for (int i = 0; i < string.length(); i++)
         {
-            if (checkingString.indexOf(chr) == i)
+            if (string.charAt(i) == chr)
             {   
                 indexCount++;
-                checkingString = checkingString.substring(i);
             }
         }
 
