@@ -22,7 +22,6 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
     }
 
     public static String capVowelsLowRest (String string) {
@@ -32,6 +31,13 @@ public class StringOps {
         char currentChar;
         for (int i = 0; i < string.length(); i++)
         {
+            /*  TODO: you don't need this casting
+                it's valid in Java to write for example
+                  char c = 'a';
+                  c += 2; // now c equals 'c'
+                by the way you can write also
+                if (c > 'a' and c<'z')... it will work
+            */
             charInt = (int) string.charAt(i);
 
             // Checking if the letter is Caps
@@ -58,7 +64,7 @@ public class StringOps {
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
+        // Write your code here: TODO: remove this comments next time :)
         String camString = "";
         boolean newWord = false;
         boolean firstWord = true;

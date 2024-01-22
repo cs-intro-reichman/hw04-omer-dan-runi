@@ -1,8 +1,8 @@
 public class ArrayOps {
     public static void main(String[] args) {
-        
     }
     
+    // TODO: will return wrong answer for findMissingInt(new int[] {0,1,2}); should be 3
     public static int findMissingInt (int [] array) {
 
         boolean flag = false;
@@ -12,6 +12,7 @@ public class ArrayOps {
             {
                 if (array[j] == i)
                 {
+                    // TODO: you can return i here allready, then you will not need the rest of the code
                     flag = true;
                 }
             }
@@ -19,7 +20,7 @@ public class ArrayOps {
             {
                 return i;
             }
-            flag = false;
+            flag = false; // TODO: not need this anyway
         }
         return 1;
     }
@@ -73,6 +74,7 @@ public class ArrayOps {
             flag = false;
         }
 
+        // TODO: you repeat your code. It's not good practice. Can make helper function
         for (int j = 0; j < array2.length; j++)
         {
             for (int i = 0; i < array1.length; i++)
@@ -92,6 +94,7 @@ public class ArrayOps {
         return true;
     }
 
+    // TODO: nice solution
     public static boolean isSorted(int [] array) {
         // Write your code here:
         boolean increasing = true;
